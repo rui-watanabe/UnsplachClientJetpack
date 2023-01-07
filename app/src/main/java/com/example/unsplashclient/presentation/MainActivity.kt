@@ -6,7 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.ui.Modifier
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.example.unsplashclient.presentation.ui.theme.UnsplashClientTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,7 +23,21 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-
+                    val navController = rememberNavController()
+                    NavHost(
+                        navController = navController,
+                        startDestination = ScreenRoute.SearchPhotosScreen.route) {
+                        // 画面検索画面
+                        composable(route = ScreenRoute.SearchPhotosScreen.route) {
+                            // TODO
+                            Text(text = "画像検索")
+                        }
+                        // 画面詳細画面
+                        composable(route = ScreenRoute.PhotoDetailScreen.route) {
+                            // TODO
+                            Text(text = "画像詳細")
+                        }
+                    }
                 }
             }
         }
