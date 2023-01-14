@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class SearchPhotoUseCase @Inject constructor(
+class SearchPhotosUseCase @Inject constructor(
     private val repository: PhotoRepository
 ) {
     //　View側からQuery（検索入力値）を受け取りその結果を返すメソッドを用意する

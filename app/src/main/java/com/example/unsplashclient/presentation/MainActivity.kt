@@ -11,8 +11,11 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.unsplashclient.presentation.search_photos.SearchPhotosScreen
 import com.example.unsplashclient.presentation.ui.theme.UnsplashClientTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +33,8 @@ class MainActivity : ComponentActivity() {
                         // 画面検索画面
                         composable(route = ScreenRoute.SearchPhotosScreen.route) {
                             // TODO
-                            Text(text = "画像検索")
+//                            Text(text = "画像検索")
+                            SearchPhotosScreen()
                         }
                         // 画面詳細画面
                         composable(route = ScreenRoute.PhotoDetailScreen.route) {
