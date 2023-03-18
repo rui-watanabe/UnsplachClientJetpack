@@ -19,7 +19,7 @@ fun SearchPhotosResultDto.toPhotos(): List<Photo> {
             photoId = it.id!!, //nullableは強制アンラップ
             description = it.description,
             likes = it.likes,
-            imageUrl = it.urls?.raw!!,
+            imageUrl = it.urls!!.raw!!,
             photographer = it.user?.username
         )
     }
