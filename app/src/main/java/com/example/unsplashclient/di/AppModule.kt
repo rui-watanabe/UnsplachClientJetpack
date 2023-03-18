@@ -19,6 +19,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+    // UnsplashApiのインスタンスを提供
     @Provides
     @Singleton
     fun provideUnsplashApi(): UnsplashApi {
@@ -33,6 +34,7 @@ object AppModule {
             .create(UnsplashApi::class.java)//引数にAPIのインターフェースが必要
     }
 
+    //repositoryの提供方法
     @Provides
     @Singleton
     fun providePhotoRepository(api: UnsplashApi): PhotoRepository {

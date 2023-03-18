@@ -3,6 +3,7 @@ package com.example.unsplashclient.presentation.search_photos.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Icon
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -14,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.example.unsplashclient.domain.model.Photo
 import com.example.unsplashclient.presentation.ui.theme.UnsplashClientTheme
 
@@ -25,9 +27,16 @@ fun PhotoThumbnail(
     Box(
         modifier = Modifier
             .background(Color.Black)
+            .heightIn(min = 200.dp)
             .clickable { onClick(photo) },
         contentAlignment = Alignment.BottomCenter
     ) {
+        CircularProgressIndicator(modifier = Modifier.align(Alignment.Center))
+        AsyncImage(
+            model = photo.imageUrl,
+            contentDescription = photo.description,
+            modifier = Modifier.fillMaxWidth()
+        )
         Row(
             modifier = Modifier
                 .background(Color.Black.copy(alpha = 0.5f))
